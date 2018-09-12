@@ -1,0 +1,51 @@
+﻿@using Newtonsoft.Json
+@using System.Collections.Generic
+@{
+
+    var json = TempData.ContainsKey(Web_Oceannic.Helpers.Alerta.Alertas.TempDataKey)
+        ? TempData[Web_Oceannic.Helpers.Alerta.Alertas.TempDataKey]
+        : null;
+
+    List<Web_Oceannic.Helpers.Alerta.Alertas> alerts;
+
+    if(json == null)
+    {
+        alerts = new List<Web_Oceannic.Helpers.Alerta.Alertas>();
+    }
+    else
+    {
+        alerts = JsonConvert.DeserializeObject<List<Web_Oceannic.Helpers.Alerta.Alertas>>(json.ToString());
+
+    }
+
+    if (alerts.Any())
+    {
+        <hr />
+    }
+
+    foreach (var alert in alerts)
+    {
+
+        TempData["TipoMsg"] = alert.AlertStyle;
+        TempData["Msg"] = alert.Message;
+        var dismissableClass = alert.Dismissable ? "alert-dismissable" : null;
+
+    }
+}
+
+        <script>
+    $(document).ready(function () {
+
+        var Tipo = '@TempData["TipoMsg"]';
+        var Msg = '@TempData["Msg"]';
+        if (Tipo != '' && Tipo != null) {
+            if (Tipo == "success") {
+                swal("Pronto!", Msg, "success")
+            }
+            else {
+                swal("Erro!", Msg, "error")
+            }
+        }
+    });
+
+        </script>

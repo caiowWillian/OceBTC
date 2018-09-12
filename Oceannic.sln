@@ -1,0 +1,116 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Apresentation", "0 - Apresentation", "{98B009D5-99E2-4AAD-864C-C28C9E51D092}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data", "4 - Data", "{477EEF0A-24B2-4E3F-B286-1D8893A5842F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{88CB932D-7D7B-4CBD-AFCE-8F7A8758A725}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_Oceannic", "Web_Oceannic\Web_Oceannic.csproj", "{0BFC30FB-356C-40BF-A3B0-5197D245B1D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{E892609A-55B0-4863-B9CA-072576D9F6C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{0DD8D0C4-5C15-47D4-A6CE-402591E06D6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{21131D13-4C16-4D96-BC8A-4BAD885A7B44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{A51B4457-7877-43DA-B2BD-0BA2F267666F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - WebAPI", "1 - WebAPI", "{965C8225-D3D7-4C2B-82C3-1CC9A00600D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OceannicAPI", "OceannicAPI\OceannicAPI.csproj", "{B34E87CF-E412-456F-B186-AC2A3CAC1A83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Cross-Cutting", "5 - Cross-Cutting", "{E7A562D2-DD85-45EC-82C0-2695744070E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security", "Security\Security.csproj", "{ADB1834C-23FC-48FD-A082-60CB8B8EBECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Utils\Util.csproj", "{D41430AC-06EF-4F12-B73E-634328A2EAB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BFC30FB-356C-40BF-A3B0-5197D245B1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BFC30FB-356C-40BF-A3B0-5197D245B1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BFC30FB-356C-40BF-A3B0-5197D245B1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BFC30FB-356C-40BF-A3B0-5197D245B1D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E892609A-55B0-4863-B9CA-072576D9F6C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E892609A-55B0-4863-B9CA-072576D9F6C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E892609A-55B0-4863-B9CA-072576D9F6C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E892609A-55B0-4863-B9CA-072576D9F6C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DD8D0C4-5C15-47D4-A6CE-402591E06D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD8D0C4-5C15-47D4-A6CE-402591E06D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD8D0C4-5C15-47D4-A6CE-402591E06D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD8D0C4-5C15-47D4-A6CE-402591E06D6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51B4457-7877-43DA-B2BD-0BA2F267666F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51B4457-7877-43DA-B2BD-0BA2F267666F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51B4457-7877-43DA-B2BD-0BA2F267666F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51B4457-7877-43DA-B2BD-0BA2F267666F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34E87CF-E412-456F-B186-AC2A3CAC1A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34E87CF-E412-456F-B186-AC2A3CAC1A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34E87CF-E412-456F-B186-AC2A3CAC1A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34E87CF-E412-456F-B186-AC2A3CAC1A83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB1834C-23FC-48FD-A082-60CB8B8EBECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB1834C-23FC-48FD-A082-60CB8B8EBECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB1834C-23FC-48FD-A082-60CB8B8EBECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB1834C-23FC-48FD-A082-60CB8B8EBECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41430AC-06EF-4F12-B73E-634328A2EAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41430AC-06EF-4F12-B73E-634328A2EAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41430AC-06EF-4F12-B73E-634328A2EAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41430AC-06EF-4F12-B73E-634328A2EAB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0BFC30FB-356C-40BF-A3B0-5197D245B1D0} = {98B009D5-99E2-4AAD-864C-C28C9E51D092}
+		{E892609A-55B0-4863-B9CA-072576D9F6C6} = {477EEF0A-24B2-4E3F-B286-1D8893A5842F}
+		{0DD8D0C4-5C15-47D4-A6CE-402591E06D6D} = {88CB932D-7D7B-4CBD-AFCE-8F7A8758A725}
+		{A51B4457-7877-43DA-B2BD-0BA2F267666F} = {21131D13-4C16-4D96-BC8A-4BAD885A7B44}
+		{B34E87CF-E412-456F-B186-AC2A3CAC1A83} = {965C8225-D3D7-4C2B-82C3-1CC9A00600D4}
+		{ADB1834C-23FC-48FD-A082-60CB8B8EBECC} = {E7A562D2-DD85-45EC-82C0-2695744070E6}
+		{D41430AC-06EF-4F12-B73E-634328A2EAB9} = {E7A562D2-DD85-45EC-82C0-2695744070E6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {369E8377-8DD2-46C0-A482-48E0FEB3F84F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://oceannic.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Data\\Data.csproj
+		SccProjectTopLevelParentUniqueName1 = Oceannic.sln
+		SccProjectName1 = Data
+		SccLocalPath1 = Data
+		SccProjectUniqueName2 = Domain\\Domain.csproj
+		SccProjectTopLevelParentUniqueName2 = Oceannic.sln
+		SccProjectName2 = Domain
+		SccLocalPath2 = Domain
+		SccProjectUniqueName3 = Web_Oceannic\\Web_Oceannic.csproj
+		SccProjectTopLevelParentUniqueName3 = Oceannic.sln
+		SccProjectName3 = Web_Oceannic
+		SccLocalPath3 = Web_Oceannic
+		SccProjectUniqueName4 = Application\\Application.csproj
+		SccProjectTopLevelParentUniqueName4 = Oceannic.sln
+		SccProjectName4 = Application
+		SccLocalPath4 = Application
+		SccProjectUniqueName5 = OceannicAPI\\OceannicAPI.csproj
+		SccProjectTopLevelParentUniqueName5 = Oceannic.sln
+		SccProjectName5 = OceannicAPI
+		SccLocalPath5 = OceannicAPI
+		SccProjectUniqueName6 = Security\\Security.csproj
+		SccProjectTopLevelParentUniqueName6 = Oceannic.sln
+		SccProjectName6 = Security
+		SccLocalPath6 = Security
+		SccProjectUniqueName7 = Utils\\Util.csproj
+		SccProjectTopLevelParentUniqueName7 = Oceannic.sln
+		SccProjectName7 = Utils
+		SccLocalPath7 = Utils
+	EndGlobalSection
+EndGlobal

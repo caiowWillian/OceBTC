@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+
+
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <h2>Depositos Confirmados</h2>
+        <table id="depositos-aceitos" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>Wallet/Banco</th>
+                    <th>Moeda</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Deposit)
+                {
+                    <tr>
+                        <td>
+                            @item.InputDate
+                        </td>
+                        <td>
+                            @item.Value
+                        </td>
+                        <td>
+                            @if (item.Wallet != null)
+                            {
+                                @item.Wallet.Guid
+                            }
+                            else
+                            {
+                                @item.Bank.Describe
+                            }
+                        </td>
+                        <td>
+
+                            @if (item.Wallet != null)
+                            {
+                                @item.Currency.Describe
+                            }
+                            else
+                            {
+                                @item.Currency.Describe
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+        </table>
+
+    </div>
+    <div class="col-md-3">
+        <h2 class="text-center">Moedas</h2>
+        <div class="block-content">
+            <div class="spinner" id="spinner-table-criptos"></div>
+            <table id="table-criptos" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <span>Titulo</span>
+                        </th>
+                        <th>
+                            <span>Valor R$</span>
+                        </th>
+                        <th>
+                            <span>Market Cap USD</span>
+                        </th>
+                        <th>
+                            <span>Variação em 24hrs</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+        <h2>Depositos Ainda não Confirmados</h2>
+        <table id="depositos-n-confirmados" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>Wallet/Banco</th>
+                    <th>Moeda</th>
+                    <th>Comprovante</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.DepositInactive)
+                {
+                    <tr>
+                        <td>
+                            @item.InputDate
+                        </td>
+                        <td>
+                            @item.Value
+                        </td>
+                        <td>
+                            @if (item.Wallet != null)
+                            {
+                                @item.Wallet.Guid
+                            }
+                            else
+                            {
+                                if(item.Bank != null)
+                                {
+
+                                    @item.Bank.Describe
+                                }
+                                
+                            }
+                        </td>
+                        <td>
+
+                            @if (item.Wallet != null)
+                            {
+                                @item.Currency.Describe
+                            }
+                            else
+                            {
+                                if(item.Bank != null)
+                                {
+
+                                    @item.Currency.Describe
+                                }
+                            }
+                        </td>
+                        <td>
+                            <i style="font-size:20px" class="fa fa-paperclip"></i>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" type="text/css" href="~/lib/data-table/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+
+        updateTableCriptos(true)
+
+        function getData(data) {
+            var html = '<tr class="tr-cripto">'
+            html += `<td>${data[0].id}</td>`
+            html += `<td>${data[0].price_brl}</td>`
+            html += `<td>${data[0].market_cap_usd}</td>`
+            if (data[0].percent_change_24h < 0) html += `<td style='color:red'>${data[0].percent_change_24h}%</td>`
+            else html += `<td style='color:green'>${data[0].percent_change_24h}%</td>`
+            html += '</tr>'
+            return html
+        }
+
+        function updateTableCriptos(first) {
+            $('.tr-cripto').remove()
+            $.ajax({
+                url: 'https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=BRL',
+                method: 'GET',
+                success: function (data) {
+                    $('#table-criptos tbody').append(getData(data))
+                }
+            })
+
+            $.ajax({
+                url: 'https://api.coinmarketcap.com/v1/ticker/ripple/?convert=BRL',
+                method: 'GET',
+                success: function (data) {
+                    $('#table-criptos tbody').append(getData(data))
+                }
+            })
+
+            $.ajax({
+                url: 'https://api.coinmarketcap.com/v1/ticker/iota/?convert=BRL',
+                method: 'GET',
+                success: function (data) {
+                    $('#table-criptos tbody').append(getData(data))
+                }
+            })
+
+            $.ajax({
+                url: 'https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=BRL',
+                method: 'GET',
+                success: function (data) {
+                    $('#table-criptos tbody').append(getData(data))
+                }
+            })
+
+            $.ajax({
+                url: 'https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=BRL',
+                method: 'GET',
+                success: function (data) {
+                    $('#table-criptos tbody').append(getData(data))
+                }
+            })
+
+            if (first) {
+                $('#spinner-table-criptos').remove()
+                $('#table-criptos').css('display', 'inline-table')
+            }
+        }
+
+        setInterval(function () {
+            updateTableCriptos(false)
+        }, 1000 * 60 * 2)
+
+        
+
+        $(document).ready(function () {
+            $('#depositos-aceitos').DataTable();
+        });
+
+        $(document).ready(function () {
+            $('#depositos-n-confirmados').DataTable();
+        });
+    </script>

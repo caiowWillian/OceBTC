@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewData["Title"] = "Depositar";
+}
+
+<h2>Depositar</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-7">
+            <label>Moeda</label>
+            <select id="moedas" name="Moedas" class="form-control">
+                <option value="0">Selecione...</option>
+                <option value="1">Real</option>
+                <option value="2">Bitcoin</option>
+                <option value="3">Ripple</option>
+                <option value="4">Bitcoin-Cash</option>
+                <option value="5">Litecoin</option>
+                <option value="6">Iota</option>
+            </select>
+            <br />
+            <label>Valor</label>
+            <input type="number" id="valor-deposito" name="ValorDeposito" class="form-control" />
+
+            <br />
+            <div id="bancos" style="display:none">
+                <label>Bancos</label>
+                <select id="select-bancos" name="SelectBancos" class="form-control">
+                    <option value="0">Selecione...</option>
+                    <option value="2">Itau</option>
+                    <option value="3">Bradesco</option>
+                </select>
+
+                <p>
+                    Faça o deposito para a conta ####-## código do banco ##.
+                    E nos <b>Envie o comprovante</b> na nossa plataforma ou pelo e-mail comprovante@@oceannic.com.br
+                </p>
+            </div>
+            <div id="cripto" style="display:none">
+                <label>Endereço da carteira</label>
+                <input type="text" id="address-wallet" name="AddressWallet" class="form-control" />
+                <input type="hidden" id="wallet-guid" name="WalletGuid" />
+                <div id="txt-carteira">
+
+                    <p>
+                        Envie o seu ativo digital para o endereço <b>4535435-535345-5345345-535353</b>
+                        e preencha o campo com o <b>endereço da sua carteira</b> para rapida identificação do seu deposito
+                    </p>
+                </div>
+            </div>
+            <h3>Não esqueça de confirmar o seu deposito nesta tela</h3>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="conf-deposit">Confirmar</button>
+
+}
+<form method="post" action="Create"></form>
+
+<script>
+    @*$('#conf-deposit').click(function () {
+            //alert($('#deposito-form').serialize())
+
+            if ($('#valor-deposito').val() === '') {
+                alert('Digite o valor do deposito')
+                return
+            }
+
+            if ($('#moedas').val() === "0") {
+                alert('Selecione uma moeda')
+                return
+            } else {
+                if ($('#moedas').val() !== "1") {
+                    if ($('#address-wallet').val() === '') {
+                        alert('Digite o endereço da sua carteira')
+                        return
+                    }
+
+                } else {
+                    if ($('#select-bancos').val() === "0") {
+                        alert('Selecione um banco')
+                        return
+                    }
+                }
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: `@Url.Action("Create","Deposit")`,
+                data: $('#deposito-form').serialize(),
+                success: function (data) {
+                    if (data.success) {
+                        modalOpen = true
+                        $('#modalDeposito').modal('toggle');
+                        swal("Pronto!", "Deposito realizado com sucesso", "success")
+                    } else {
+                        $('#modalDeposito').modal('toggle');
+                        swal("Poxa","Houve um erro, por favor tente novamente, se o problema persistir envie um email para oceannic@@oceannic.com.br",'error')
+                        alert('error')
+                    }
+                }
+            })
+    })
+
+</script>*@

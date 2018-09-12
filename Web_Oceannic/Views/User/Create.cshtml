@@ -1,0 +1,74 @@
+﻿@model OceannicAPI.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Realizar Cadastro</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cep" class="control-label"></label>
+                <input asp-for="Cep" class="form-control" />
+                <span asp-validation-for="Cep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pw" class="control-label"></label>
+                <input asp-for="Pw" class="form-control" />
+                <span asp-validation-for="Pw" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfPw" class="control-label"></label>
+                <input asp-for="ConfPw" class="form-control" />
+                <span asp-validation-for="ConfPw" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+
+            <label>Sua Foto</label>
+            <input type="file" name="File" id="File" >
+            <hr />
+            <img src="" height="200" id="previaImagem" alt="Prévia da imagem...">
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $('#File').change(function () { previewFile() });
+    function previewFile() {
+        var preview = document.getElementById('previaImagem');
+        var file = document.getElementById('File').files[0];
+        var reader = new FileReader();
+        
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+    
+</script>

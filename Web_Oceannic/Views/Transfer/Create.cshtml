@@ -1,0 +1,100 @@
+﻿@model OceannicAPI.Models.TransferViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Realizar Transferencia</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CurrencyId" class="control-label"></label>
+                <select id="currencyId" asp-for="CurrencyId" asp-items="@ViewBag.CurrencyId" class="form-control">
+                    <option value="">Selecione...</option>
+                </select>
+                <span asp-validation-for="CurrencyId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Value" class="control-label"></label>
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+
+            <div id="real" style="display:none">
+                <div class="form-group">
+                    <label asp-for="UserBanksId" class="control-label"></label>
+                    <select id="userBanks" asp-for="UserBanksId" class="form-control">
+                        <option value="">Selecione</option>
+                        <option value="1">Itau</option>
+                        <option value="2">Bradesco</option>
+                        <option value="3">Nubank</option>
+                        <option value="4">Banco Original</option>
+                    </select>
+                    <span asp-validation-for="UserBanksId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Agency" class="control-label"></label>
+                    <input asp-for="Agency" class="form-control" />
+                    <span asp-validation-for="Agency" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Account" class="control-label"></label>
+                    <input asp-for="Account" class="form-control" />
+                    <span asp-validation-for="Account" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div id="cripto" style="display:none">
+                <div class="form-group">
+                    <label asp-for="UserWallet" class="control-label"></label>
+                    <input asp-for="UserWallet" class="form-control" />
+                    <span asp-validation-for="UserWallet" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Describe" class="control-label"></label>
+                <input asp-for="Describe" class="form-control" />
+                <span asp-validation-for="Describe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Minhas transferencias </a>
+</div>
+
+<script>
+    if ($('#currencyId').val() === "1") {
+        $('#real').css('display', 'block')
+        $('#cripto').css('display', 'none')
+    } else if ($('#currencyId').val() > 1) {
+        $('#real').css('display', 'none')
+        $('#cripto').css('display', 'block')
+    } else {
+        $('#real').css('display', 'none')
+        $('#real').css('display', 'none')
+    }
+
+    $('#currencyId').change(function () {
+        if ($(this).val() === "1") {
+            $('#real').css('display', 'block')
+            $('#cripto').css('display', 'none')
+        } else if ($(this).val() > 1) {
+            $('#real').css('display', 'none')
+            $('#cripto').css('display', 'block')
+        } else {
+            $('#real').css('display', 'none')
+            $('#real').css('display', 'none')
+        }
+    })
+</script>

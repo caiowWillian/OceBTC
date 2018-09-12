@@ -1,0 +1,147 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Century Gothic';
+    overflow-x: hidden;
+}
+
+.divider-content {
+    width: 50%;
+    height: 0.01em;
+    color: #00B8C6;
+    border: 1px solid rgba(0,184,198,0.1);
+    position: relative;
+    left: 25%;
+    border-radius: 55px;
+    margin-left: 50px;
+}
+
+.btn-default {
+    border-radius: 50px;
+    border-color: #00B8C6;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.background-green-blue {
+    background-color: #00B8C6;
+    border-radius: 50px;
+}
+
+.block-content, .divider-content {
+    margin-bottom: 50px;
+}
+
+#header {
+    height: 56px;
+    background-color: #000
+}
+
+.separator {
+    margin-left: 50px;
+}
+
+#options-menu {
+    position: absolute;
+    right: 75px;
+    font-family: 'Century Gothic';
+    font-size: 17px;
+}
+
+    #options-menu a {
+        color: white;
+    }
+
+@keyframes hover-from-white {
+    from {
+        color: white;
+    }
+
+    to {
+        color: #00B8C6;
+    }
+}
+
+@keyframes hover-from-gray {
+    from {
+        color: #7a7a7a;
+    }
+
+    to {
+        color: #00B8C6;
+    }
+}
+
+#options-menu a:hover {
+    animation-name: hover;
+    animation-duration: 1s;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.card {
+    width: 100%;
+    border: 1px solid rgba(0,184,198,0.1);
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.10);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.10);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.10);
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/*Spinner*/
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #f3f3f3;
+    border-top: 3px solid #00B8C6;
+    border-radius: 100%;
+    margin: auto;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
